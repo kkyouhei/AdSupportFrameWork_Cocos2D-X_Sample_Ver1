@@ -26,6 +26,8 @@
 #import "RootViewController.h"
 #import "cocos2d.h"
 #import "CCEAGLView.h"
+#import <GAmeFeatKit/GFWallButton.h>
+#import <GAmeFeatKit/GFWallButtonController.h>
 
 @implementation RootViewController
 
@@ -84,6 +86,14 @@
             cocos2d::Application::getInstance()->applicationScreenSizeChanged((int) s.width, (int) s.height);
         }
     }
+}
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewWillAppear:(BOOL)animated{
+    GFWallButton *gfButton = [[[GFWallButton alloc] init:self] retain];
+    gfButton.frame = CGRectMake(0, 0, 60, 60); // x軸 y軸 width height
+    [[[GFWallButtonController alloc]init:gfButton gfButtonTag:@"設置箇所コード"] autorelease]; //タグを使う場合
+    [self.view addSubview:gfButton];
 }
 
 //fix not hide status on ios7

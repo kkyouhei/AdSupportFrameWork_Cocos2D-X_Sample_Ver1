@@ -54,13 +54,20 @@ public class AppActivity extends Cocos2dxActivity {
 		me.addContentView(container, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 		
 		gfAppController = new GameFeatAppController();
+		// 広告設定初期化
+		gfAppController.activateGF(me, true, true, true);
+
+		GameFeatWallButtonView gfButton = new GameFeatWallButtonView(this);
+		gfAppController.drawGFButton(gfButton, "設置箇所コード");
+
+		LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		gfButton.setGravity(Gravity.CENTER);
+		container.addView(gfButton, param);
 	}
 	
 
     public void onStart() {
     	super.onStart();
-    	// 広告設定初期化
-    	gfAppController.activateGF(me, true, true, true);
     }
     
     //================================================================================

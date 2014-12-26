@@ -92,7 +92,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     GFWallButton *gfButton = [[[GFWallButton alloc] init:self] retain];
     gfButton.frame = CGRectMake(0, 0, 60, 60); // x軸 y軸 width height
-    [[[GFWallButtonController alloc]init:gfButton gfButtonTag:@"設置箇所コード"] autorelease]; //タグを使う場合
+    //設置箇所コードは管理画面から入稿時時に設定した設置箇所コードを入力してください
+    [[[GFWallButtonController alloc]init:gfButton gfButtonTag:@"設置箇所コード"] autorelease];
     [self.view addSubview:gfButton];
 }
 

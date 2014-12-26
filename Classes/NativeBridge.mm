@@ -12,8 +12,6 @@
 #import <GameFeatKit/GFView.h>
 #import <GameFeatKit/GFController.h>
 
-#define GF_SITE_ID @"213"
-
 /**
  * オファーウォール型GameFeat表示
  */

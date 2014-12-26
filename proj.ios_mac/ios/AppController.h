@@ -8,6 +8,8 @@
 
 @class RootViewController;
 
+// GAMEFEAT MediaID
+#define GF_SITE_ID @"media_id"
 @interface AppController : NSObject <UIApplicationDelegate, GFPopupViewDelegate> {
     UIWindow *window;
 }

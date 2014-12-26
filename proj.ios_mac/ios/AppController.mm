@@ -30,9 +30,6 @@
 
 @implementation AppController
 
-// GAMEFEAT MediaID
-#define GF_SITE_ID @"1580"
-
 #pragma mark -
 #pragma mark Application lifecycle
 

@@ -100,7 +100,7 @@ static AppDelegate s_sharedApplication;
     /* cocos2d::Director::getInstance()->resume(); */
     
     // GF Activate
-    [GFController activateGF:GF_SITE_ID useCustom:YES useIcon:YES usePopup:YES];
+    [GFController activateGF:GF_SITE_ID useCustom:YES useIcon:YES];
 
     
 }
@@ -168,25 +168,6 @@ static AppDelegate s_sharedApplication;
     [self.gfIconController stopAd];
 }
 
-
-/**
- * 全画面GameFeat追加
- */
-- (void)addGameFeat {
-    
-    // 全画面広告を初期化（デリゲート版）
-    self.popupView = [[GFPopupView alloc] init:self];
-    
-    // 毎回表示
-    [self.popupView setSchedule:1];
-    
-    // 全画面広告の表示
-    if ([self.popupView loadAd:GF_SITE_ID]) {
-        [_viewController.view addSubview:self.popupView];
-    }
-    
-}
-
 /**
  * アイコン型GameFeat追加
  */
@@ -214,25 +195,6 @@ static AppDelegate s_sharedApplication;
 }
 
 /**
- * 全画面型GameFeat表示
- */
-- (void)showGameFeat {
-    if (self.popupView) {
-        [self hideGameFeat];
-    }
-    [self addGameFeat];
-}
-
-/**
- * 全画面型GameFeat削除
- */
-- (void)hideGameFeat {
-    if (self.popupView) {
-        [self.popupView removeFromSuperview];
-    }
-}
-
-/**
  * アイコン型GameFeat表示
  */
 - (void)showIconGameFeat {
@@ -251,22 +213,5 @@ static AppDelegate s_sharedApplication;
     [self.gfIconController stopAd];
     [self.gfIconController invisibleIconAd];
 }
-
-// 全画面広告が表示された際に実行される
-- (void)didShowGameFeatPopup{
-    NSLog(@"didShowGameFeatPopup");
-}
-
-// 全画面広告が閉じられた際に実行される
-- (void)didCloseGameFeatPopup{
-    NSLog(@"didCloseGameFeatPopup");
-}
-
-// 全画面広告が表示できなかった際に実行される
-- (void)failGameFeatPopupData{
-    NSLog(@"failGameFeatPopupData");
-}
-
-
 
 @end

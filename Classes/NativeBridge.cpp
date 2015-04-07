@@ -30,32 +30,6 @@ void NativeBridge::showGameFeat()
 }
 
 /**
- * 全画面型GameFeat表示
- */
-void NativeBridge::showAllGameFeat()
-{
-    JniMethodInfo t;
-    
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "showAllGameFeatJNI", "()V"))
-    {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID);
-    }
-}
-
-/**
- * 全画面型GameFeat非表示
- */
-void NativeBridge::hideAllGameFeat()
-{
-    JniMethodInfo t;
-    
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "hideAllGameFeatJNI", "()V"))
-    {
-        t.env->CallStaticVoidMethod(t.classID, t.methodID);
-    }
-}
-
-/**
  * アイコン型GameFeat表示
  */
 void NativeBridge::showIconGameFeat()

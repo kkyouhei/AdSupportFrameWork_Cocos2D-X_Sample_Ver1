@@ -23,26 +23,6 @@ void NativeBridge::showGameFeat()
 }
 
 /**
- * 全画面型GameFeat表示
- */
-void NativeBridge::showAllGameFeat()
-{
-    AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
-    [appController showGameFeat];
-    NSLog(@"showAllGameFeat");
-}
-
-/**
- * 全画面型GameFeat非表示
- */
-void NativeBridge::hideAllGameFeat()
-{
-    AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
-    [appController hideGameFeat];
-    NSLog(@"hideAllGameFeat");
-}
-
-/**
  * アイコン型GameFeat表示
  */
 void NativeBridge::showIconGameFeat()

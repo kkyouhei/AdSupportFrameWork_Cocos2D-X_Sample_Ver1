@@ -8,7 +8,6 @@
 
 
 #include "MainScene.h"
-#include "SubScene.h"
 #include "NativeBridge.h"
 
 using namespace cocos2d;
@@ -37,12 +36,6 @@ bool MainScene::init()
     gamefeatButton->setPosition(Point(size.width/2, size.height*2/3));
     gamefeatButton->setTag(tag_gamefeat);
     
-    //画面移動
-    MenuItemImage* nextButton = MenuItemImage::create("bGameFeat1.png", "bGameFeat2.png", CC_CALLBACK_1(MainScene::pushMenu, this));
-    nextButton->setPosition(Point(size.width/2, size.height/2));
-    nextButton->setTag(tag_next);
-    
-    
     //アイコン非表示
     MenuItemImage* iconHideButton = MenuItemImage::create("btIconHide.png", "btIconHide.png", CC_CALLBACK_1(MainScene::iconHide,this));
     iconHideButton->setPosition(Point(size.width/2 - 140, size.height/4));
@@ -53,7 +46,7 @@ bool MainScene::init()
     iconShowButton->setPosition(Point(size.width/2 + 140, size.height/4));
     iconShowButton->setTag(tag_next);
     
-    Menu* menu = Menu::create(gamefeatButton,nextButton,iconHideButton,iconShowButton,NULL);
+    Menu* menu = Menu::create(gamefeatButton,iconHideButton,iconShowButton,NULL);
     menu->setPosition(Point::ZERO);
     this->addChild(menu);
     
@@ -74,16 +67,6 @@ void MainScene::pushMenu(Ref* pSender)
     if (tag == tag_gamefeat)
     {
         NativeBridge::showGameFeat();
-    }
-    //全画面型GameFeat表示画面へ遷移
-    else if (tag == tag_next)
-    {
-        
-        //アイコン型GameFeat削除
-        NativeBridge::hideIconGameFeat();
-        
-        Scene* scene = SubScene::scene();
-        Director::getInstance()->replaceScene(scene);
     }
 }
 

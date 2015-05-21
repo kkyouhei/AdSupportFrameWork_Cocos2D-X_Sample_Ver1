@@ -100,7 +100,7 @@ static AppDelegate s_sharedApplication;
     /* cocos2d::Director::getInstance()->resume(); */
     
     // GF Activate
-    [GFController activateGF:GF_SITE_ID useCustom:YES useIcon:YES];
+    [AdController activate:GF_SITE_ID useCustom:YES useIcon:YES];
 
     
 }
@@ -117,7 +117,7 @@ static AppDelegate s_sharedApplication;
         backgroundSupported = device.multitaskingSupported;
     }
     if (backgroundSupported) {
-        [GFController backgroundTask];
+        [AdController backgroundTask];
     }
     
     cocos2d::Application::getInstance()->applicationDidEnterBackground();
@@ -128,7 +128,7 @@ static AppDelegate s_sharedApplication;
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
     
-    [GFController conversionCheckStop];
+    [AdController conversionCheckStop];
 
     cocos2d::Application::getInstance()->applicationWillEnterForeground();
 }
@@ -169,24 +169,24 @@ static AppDelegate s_sharedApplication;
 }
 
 /**
- * アイコン型GameFeat追加
+ * アイコン型追加
  */
-- (void)addIconGameFeat {
+- (void)addIcon {
     
     // GFIconControllerの初期化
-    self.gfIconController = [[GFIconController alloc] init];
+    self.gfIconController = [[AdIcController alloc] init];
     
     // アイコンの自動更新間隔を指定
     [self.gfIconController setRefreshTiming:10];
     
     // アイコンの配置位置を設定
     {
-        GFIconView *iconView = [[[GFIconView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)] autorelease];
+        AdIcView *iconView = [[[AdIcView alloc] initWithFrame:CGRectMake(10, 10, 60, 60)] autorelease];
         [self.gfIconController addIconView:iconView];
         [_viewController.view addSubview:iconView];
     }
     {
-        GFIconView *iconView = [[[GFIconView alloc] initWithFrame:CGRectMake(80, 10, 60, 60)] autorelease];
+        AdIcView *iconView = [[[AdIcView alloc] initWithFrame:CGRectMake(80, 10, 60, 60)] autorelease];
         [self.gfIconController addIconView:iconView];
         [_viewController.view addSubview:iconView];
     }
@@ -195,11 +195,11 @@ static AppDelegate s_sharedApplication;
 }
 
 /**
- * アイコン型GameFeat表示
+ * アイコン型表示
  */
-- (void)showIconGameFeat {
+- (void)showIcon {
     if ([self.gfIconController.arrIconView count] == 0) {
-        [self addIconGameFeat];
+        [self addIcon];
     } else if (self.gfIconController.isTimerActive == NO) {
         [self.gfIconController loadAd:GF_SITE_ID];
     }
@@ -207,9 +207,9 @@ static AppDelegate s_sharedApplication;
 }
 
 /**
- * アイコン型GameFeat非表示
+ * アイコン型非表示
  */
-- (void)hideIconGameFeat {
+- (void)hideIcon {
     [self.gfIconController stopAd];
     [self.gfIconController invisibleIconAd];
 }

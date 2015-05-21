@@ -1,6 +1,5 @@
 //
 //  NativeBridge.m
-//  GameFeatSample
 //
 //  Created by 中村 慎司 on 2013/09/04.
 //
@@ -9,35 +8,35 @@
 #import "NativeBridge.h"
 #include "AppController.h"
 
-#import <GameFeatKit/GFView.h>
-#import <GameFeatKit/GFController.h>
+#import <AdSupportFramework/AdView.h>
+#import <AdSupportFramework/AdController.h>
 
 /**
- * オファーウォール型GameFeat表示
+ * オファーウォール型表示
  */
-void NativeBridge::showGameFeat()
+void NativeBridge::showAd()
 {
     AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
-    [GFController showGF:(UIViewController *)appController.viewController site_id:GF_SITE_ID];
-    NSLog(@"showGameFeat");
+    [AdController showAd:(UIViewController *)appController.viewController site_id:GF_SITE_ID];
+    NSLog(@"showAd");
 }
 
 /**
- * アイコン型GameFeat表示
+ * アイコン型表示
  */
-void NativeBridge::showIconGameFeat()
+void NativeBridge::showIcon()
 {
     AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
-    [appController showIconGameFeat];
-    NSLog(@"showIconGameFeat");
+    [appController showIcon];
+    NSLog(@"showIcon");
 }
 
 /**
- * アイコン型GameFeat非表示
+ * アイコン型非表示
  */
-void NativeBridge::hideIconGameFeat()
+void NativeBridge::hideIcon()
 {
     AppController *appController = (AppController*)[[UIApplication sharedApplication] delegate];
-    [appController hideIconGameFeat];
-    NSLog(@"hideIconGameFeat");
+    [appController hideIcon];
+    NSLog(@"hideIcon");
 }

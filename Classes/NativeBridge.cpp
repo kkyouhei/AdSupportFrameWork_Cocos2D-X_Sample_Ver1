@@ -1,6 +1,5 @@
 //
 //  NativeBridge.cpp
-//  GameFeatSample
 //
 //  Created by 中村 慎司 on 2013/09/04.
 //
@@ -17,39 +16,39 @@ using namespace std;
 using namespace cocos2d;
 
 /**
- * オファーウォール型GameFeat表示
+ * オファーウォール型広告表示
  */
-void NativeBridge::showGameFeat()
+void NativeBridge::showAd()
 {
     JniMethodInfo t;
     
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "showGameFeatJNI", "()V"))
+    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "showAdJNI", "()V"))
     {
         t.env->CallStaticVoidMethod(t.classID, t.methodID);
     }
 }
 
 /**
- * アイコン型GameFeat表示
+ * アイコン型広告表示
  */
-void NativeBridge::showIconGameFeat()
+void NativeBridge::showIcon()
 {
     JniMethodInfo t;
     
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "showIconGameFeatJNI", "()V"))
+    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "showIconJNI", "()V"))
     {
         t.env->CallStaticVoidMethod(t.classID, t.methodID);
     }
 }
 
 /**
- * アイコン型GameFeat非表示
+ * アイコン型広告非表示
  */
-void NativeBridge::hideIconGameFeat()
+void NativeBridge::hideIcon()
 {
     JniMethodInfo t;
     
-    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "hideIconGameFeatJNI", "()V"))
+    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "hideIconJNI", "()V"))
     {
         t.env->CallStaticVoidMethod(t.classID, t.methodID);
     }

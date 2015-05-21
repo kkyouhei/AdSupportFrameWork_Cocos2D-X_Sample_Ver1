@@ -1,6 +1,6 @@
 //
 //  MainScene.h
-//  GameFeatSample_Cocos2d-x_v3.2
+//  AdSupportFw_Cocos2d-x_v3.2
 //
 //  Created by kkyouhei on 2014/10/31.
 //
@@ -19,7 +19,7 @@ protected:
     void iconShow(Ref* pSender);
     
     enum {
-        tag_gamefeat = 1,
+        tag_name = 1,
         tag_next
     };
     

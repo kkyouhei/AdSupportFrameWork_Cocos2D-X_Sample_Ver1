@@ -1,6 +1,6 @@
 //
 //  MainScene.cpp
-//  GameFeatSample_Cocos2d-x_v3.2
+//  AdSupportFw_Cocos2d-x_v3.2
 //
 //  Created by kkyouhei on 2014/10/31.
 //
@@ -31,10 +31,10 @@ bool MainScene::init()
     
     Size size = Director::getInstance()->getWinSize();
     
-    //GameFeat起動
-    MenuItemImage* gamefeatButton = MenuItemImage::create("GameFeatButton1.png", "GameFeatButton2.png", CC_CALLBACK_1(MainScene::pushMenu, this));
-    gamefeatButton->setPosition(Point(size.width/2, size.height*2/3));
-    gamefeatButton->setTag(tag_gamefeat);
+    //起動
+    MenuItemImage* bootBtn = MenuItemImage::create("AdSupportFwButton1.png", "AdSupportFwButton2.png", CC_CALLBACK_1(MainScene::pushMenu, this));
+    bootBtn->setPosition(Point(size.width/2, size.height*2/3));
+    bootBtn->setTag(tag_name);
     
     //アイコン非表示
     MenuItemImage* iconHideButton = MenuItemImage::create("btIconHide.png", "btIconHide.png", CC_CALLBACK_1(MainScene::iconHide,this));
@@ -46,12 +46,12 @@ bool MainScene::init()
     iconShowButton->setPosition(Point(size.width/2 + 140, size.height/4));
     iconShowButton->setTag(tag_next);
     
-    Menu* menu = Menu::create(gamefeatButton,iconHideButton,iconShowButton,NULL);
+    Menu* menu = Menu::create(bootBtn,iconHideButton,iconShowButton,NULL);
     menu->setPosition(Point::ZERO);
     this->addChild(menu);
     
-    //アイコン型GameFeat表示
-    NativeBridge::showIconGameFeat();
+    //アイコン型表示
+    NativeBridge::showIcon();
     
     return true;
 }
@@ -63,10 +63,10 @@ void MainScene::pushMenu(Ref* pSender)
 {
     int tag = ((MenuItem *)(pSender))->getTag();
     
-    //オファーウォール型GameFeat表示
-    if (tag == tag_gamefeat)
+    //オファーウォール型表示
+    if (tag == tag_name)
     {
-        NativeBridge::showGameFeat();
+        NativeBridge::showAd();
     }
 }
 
@@ -75,7 +75,7 @@ void MainScene::pushMenu(Ref* pSender)
  */
 void MainScene::iconShow(Ref* pSender)
 {
-    NativeBridge::showIconGameFeat();
+    NativeBridge::showIcon();
 }
 
 /**
@@ -83,5 +83,5 @@ void MainScene::iconShow(Ref* pSender)
  */
 void MainScene::iconHide(Ref* pSender)
 {
-    NativeBridge::hideIconGameFeat();
+    NativeBridge::hideIcon();
 }

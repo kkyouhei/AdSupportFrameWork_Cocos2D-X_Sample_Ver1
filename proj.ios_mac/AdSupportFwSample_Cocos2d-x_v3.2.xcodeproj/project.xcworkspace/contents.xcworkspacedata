@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GameFeatSample_Cocos2d-x_v3.2.xcodeproj">
+      location = "self:AdSupportFwSample_Cocos2d-x_v3.2.xcodeproj">
    </FileRef>
 </Workspace>
